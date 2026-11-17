@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main() {
+    int a[100], n, i, pos, value, choice;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("\n1. Insert\n2. Delete\n");
+    printf("Enter choice: ");
+    scanf("%d", &choice);
+
+    if(choice == 1) {
+        printf("Enter position: ");
+        scanf("%d", &pos);
+        printf("Enter value: ");
+        scanf("%d", &value);
+        for(i = n; i >= pos; i--)
+            a[i] = a[i - 1];
+
+        a[pos - 1] = value;
+        n++;
+        printf("Array after insertion:\n");
+    }
+       else if(choice == 2) {
+        printf("Enter position: ");
+        scanf("%d", &pos);
+
+        for(i = pos - 1; i < n - 1; i++)
+            a[i] = a[i + 1];
+
+        n--;
+      printf("Array after deletion:\n");
+    }
+    else {
+        printf("Invalid choice!");
+        return 0;
+    }
+     for(i = 0; i < n; i++)
+        printf("%d ", a[i]);
+
+    return 0;
+}
